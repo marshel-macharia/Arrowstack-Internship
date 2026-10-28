@@ -1,0 +1,14 @@
+== Web root perms ==
+777 www-data:www-data
+== Parent dir perms ==
+750 www-data:www-data
+== UFW ==
+Status: inactive
+== testuser ==
+testuser:x:1002:1002::/home/testuser:/bin/sh
+== SSH effective config ==
+permitrootlogin prohibit-password
+passwordauthentication yes
+== Apache banner config ==
+ServerTokens Full
+ServerSignature On

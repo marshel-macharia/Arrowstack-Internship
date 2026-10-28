@@ -1,0 +1,65 @@
+=== A1 UID 0 accounts ===
+root
+=== A2 Empty passwords ===
+=== A3 Regular accounts ===
+nobody
+marshel
+splunkfwd
+testuser
+=== S1/S2 SSH settings ===
+permitrootlogin prohibit-password
+passwordauthentication yes
+=== F1 Firewall ===
+Status: inactive
+=== F2 Listening ports ===
+Netid State  Recv-Q Send-Q    Local Address:Port Peer Address:PortProcess                                                                              
+udp   UNCONN 0      0            127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=496,fd=18))                                           
+udp   UNCONN 0      0         127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=496,fd=16))                                           
+udp   UNCONN 0      0      10.0.2.15%enp0s3:68        0.0.0.0:*    users:(("systemd-network",pid=651,fd=37))                                           
+udp   UNCONN 0      0             127.0.0.1:323       0.0.0.0:*    users:(("chronyd",pid=886,fd=4))                                                    
+udp   UNCONN 0      0                 [::1]:323          [::]:*    users:(("chronyd",pid=886,fd=5))                                                    
+tcp   LISTEN 0      4096         127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=496,fd=19))                                           
+tcp   LISTEN 0      4096      127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=496,fd=17))                                           
+tcp   LISTEN 0      4096            0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=1780,fd=3),("systemd",pid=1,fd=101))                             
+tcp   LISTEN 0      511                   *:80              *:*    users:(("apache2",pid=1021,fd=4),("apache2",pid=1020,fd=4),("apache2",pid=823,fd=4))
+tcp   LISTEN 0      4096               [::]:22           [::]:*    users:(("sshd",pid=1780,fd=4),("systemd",pid=1,fd=102))                             
+tcp   LISTEN 0      511                   *:443             *:*    users:(("apache2",pid=1021,fd=6),("apache2",pid=1020,fd=6),("apache2",pid=823,fd=6))
+=== W1 Banner config ===
+ServerTokens Full
+ServerSignature On
+=== W2 /backup/ status code ===
+200
+=== W3 Modules ===
+ autoindex_module (shared)
+=== W4 World-writable in /var/www ===
+/var/www/apache-web-01/public_html
+/var/www/apache-web-01/public_html/index.html
+=== W5 HTTPS headers ===
+HTTP/1.1 200 OK
+Date: Wed, 28 Oct 2026 08:18:37 GMT
+Server: Apache/2.4.66 (Ubuntu) OpenSSL/3.5.5
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29
+Content-Type: text/html
+
+=== M1 Unattended upgrades ===
+enabled
+=== M2 Upgradable packages ===
+Listing...
+base-files/resolute-updates 14ubuntu6.2 amd64 [upgradable from: 14ubuntu6]
+libssl3t64/resolute-updates,resolute-security 3.5.5-1ubuntu3.4 amd64 [upgradable from: 3.5.5-1ubuntu3.3]
+motd-news-config/resolute-updates 14ubuntu6.2 all [upgradable from: 14ubuntu6]
+openssl-provider-legacy/resolute-updates,resolute-security 3.5.5-1ubuntu3.4 amd64 [upgradable from: 3.5.5-1ubuntu3.3]
+openssl/resolute-updates,resolute-security 3.5.5-1ubuntu3.4 amd64 [upgradable from: 3.5.5-1ubuntu3.3]
+python-apt-common/resolute-updates 3.1.0ubuntu1.1 all [upgradable from: 3.1.0ubuntu1]
+python3-apt/resolute-updates 3.1.0ubuntu1.1 amd64 [upgradable from: 3.1.0ubuntu1]
+python3-distupgrade/resolute-updates 1:26.04.23 all [upgradable from: 1:26.04.22]
+python3-software-properties/resolute-updates 0.120.1 all [upgradable from: 0.120]
+software-properties-common/resolute-updates 0.120.1 all [upgradable from: 0.120]
+ubuntu-release-upgrader-core/resolute-updates 1:26.04.23 all [upgradable from: 1:26.04.22]
+=== L1 rsyslog ===
+active
+=== L2 fail2ban ===
+inactive
