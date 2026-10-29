@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Thu Oct 29 03:24:36 2026 as: /usr/lib/nmap/nmap -sV -sC -p22,80,443 -n -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-services 192.168.208.10
+Host: 192.168.208.10 ()	Status: Up
+Host: 192.168.208.10 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.2p1 Ubuntu 2ubuntu3.5 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.66 ((Ubuntu) OpenSSL|3.5.5)/, 443/open/tcp//ssl|http//Apache httpd 2.4.66 ((Ubuntu) OpenSSL|3.5.5)/
+# Nmap done at Thu Oct 29 03:24:56 2026 -- 1 IP address (1 host up) scanned in 19.55 seconds

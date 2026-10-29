@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Thu Oct 29 03:14:32 2026 as: /usr/lib/nmap/nmap -sS -p- -n -T3 -&#45;max-retries 2 -&#45;max-rate 300 -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-allports 192.168.208.10 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sS -p- -n -T3 -&#45;max-retries 2 -&#45;max-rate 300 -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-allports 192.168.208.10" start="1793258072" startstr="Thu Oct 29 03:14:32 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="192.168.208.10" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskprogress task="SYN Stealth Scan" time="1793258083" percent="2.38" remaining="452" etc="1793258535"/>
+<taskprogress task="SYN Stealth Scan" time="1793258173" percent="23.09" remaining="337" etc="1793258509"/>
+<taskprogress task="SYN Stealth Scan" time="1793258197" percent="28.47" remaining="315" etc="1793258511"/>
+<taskprogress task="SYN Stealth Scan" time="1793258360" percent="65.65" remaining="151" etc="1793258511"/>
+<taskprogress task="SYN Stealth Scan" time="1793258474" percent="91.78" remaining="36" etc="1793258510"/>
+<taskprogress task="SYN Stealth Scan" time="1793258499" percent="97.31" remaining="12" etc="1793258511"/>
+<host starttime="1793258072" endtime="1793258510"><status state="up" reason="reset" reason_ttl="255"/>
+<address addr="192.168.208.10" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="65532">
+<extrareasons reason="no-response" count="65532" proto="tcp" ports="1-21,23-79,81-442,444-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+</ports>
+<times srtt="2246" rttvar="2246" to="100000"/>
+</host>
+<runstats><finished time="1793258511" timestr="Thu Oct 29 03:21:51 2026" summary="Nmap done at Thu Oct 29 03:21:51 2026; 1 IP address (1 host up) scanned in 438.32 seconds" elapsed="438.32" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Thu Oct 29 03:24:36 2026 as: /usr/lib/nmap/nmap -sV -sC -p22,80,443 -n -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-services 192.168.208.10 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sV -sC -p22,80,443 -n -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-services 192.168.208.10" start="1793258676" startstr="Thu Oct 29 03:24:36 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="3" services="22,80,443"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="192.168.208.10" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1793258677" endtime="1793258696"><status state="up" reason="reset" reason_ttl="255"/>
+<address addr="192.168.208.10" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="10.2p1 Ubuntu 2ubuntu3.5" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:10.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache httpd" version="2.4.66" extrainfo="(Ubuntu) OpenSSL/3.5.5" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.66</cpe></service><script id="http-server-header" output="Apache/2.4.66 (Ubuntu) OpenSSL/3.5.5"><elem>Apache/2.4.66 (Ubuntu) OpenSSL/3.5.5</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."></script></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache httpd" version="2.4.66" extrainfo="(Ubuntu) OpenSSL/3.5.5" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.66</cpe></service><script id="ssl-cert" output="Subject: commonName=apache-web-01&#xa;Not valid before: 2026-08-25T17:18:56&#xa;Not valid after:  2027-08-25T17:18:56"><table key="subject">
+<elem key="commonName">apache-web-01</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">apache-web-01</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">9BC7FFF8F682D857ED83A6A4CAF49119D752D8503A4AF8159A52E167C6CD93AEDBB5F5B59DE1D10423DA8E0CEE2944F8E29CF997D89418E3409C23200C9AED596811A0928CC6A1980594886479FA4C7639CDCC5FE83CDDC3488AEC8154F189758EA92F6C62C01CCACA124C54F3DDC515F5E605A54721E6F3024F4C6F9B8304A57108176C827AD195130DED4507B953F1B10E281E3FB17AC85622883EA012DD0E6BC8FB5C1C7971801FF99C1CF4AE588BE93CA8EEAD4024DEBDBE98C43FEB71A7F7C8A8B0A3595B03DA3D168A97B07C59B90045A664D86935C611F68DACE95533C538133DDB6E74BA04B363FEF9652AC324A5C8194745C82C16C06496660C8795</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">8E:6C:41:5A:6D:9E:94:DF:15:C5:63:A7:F7:FE:27:DF:BC:B6:1A:EF</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">8E:6C:41:5A:6D:9E:94:DF:15:C5:63:A7:F7:FE:27:DF:BC:B6:1A:EF</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-08-25T17:18:56</elem>
+<elem key="notAfter">2027-08-25T17:18:56</elem>
+</table>
+<elem key="md5">0998aee6e0c866fabe6011a8de76f212</elem>
+<elem key="sha1">1c2895750f91d0b4b7ebd395d3313727e5629e3b</elem>
+<elem key="sha256">ed44062877767839c2e17dda6c8e8395c0cec6e1b4921e46c23051506e15b000</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDETCCAfmgAwIBAgIUSB4hhxhjDdB5tzB658JCrbwN2gIwDQYJKoZIhvcNAQEL&#xa;BQAwGDEWMBQGA1UEAwwNYXBhY2hlLXdlYi0wMTAeFw0yNjA4MjUxNzE4NTZaFw0y&#xa;NzA4MjUxNzE4NTZaMBgxFjAUBgNVBAMMDWFwYWNoZS13ZWItMDEwggEiMA0GCSqG&#xa;SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCbx//49oLYV+2DpqTK9JEZ11LYUDpK+BWa&#xa;UuFnxs2Trtu19bWd4dEEI9qODO4pRPjinPmX2JQY40CcIyAMmu1ZaBGgkozGoZgF&#xa;lIhkefpMdjnNzF/oPN3DSIrsgVTxiXWOqS9sYsAcysoSTFTz3cUV9eYFpUch5vMC&#xa;T0xvm4MEpXEIF2yCetGVEw3tRQe5U/GxDigeP7F6yFYiiD6gEt0Oa8j7XBx5cYAf&#xa;+Zwc9K5Yi+k8qO6tQCTevb6YxD/rcaf3yKiwo1lbA9o9FoqXsHxZuQBFpmTYaTXG&#xa;EfaNrOlVM8U4Ez3bbnS6BLNj/vllKsMkpcgZR0XILBbAZJZmDIeVAgMBAAGjUzBR&#xa;MB0GA1UdDgQWBBSObEFabZ6U3xXFY6f3/iffvLYa7zAfBgNVHSMEGDAWgBSObEFa&#xa;bZ6U3xXFY6f3/iffvLYa7zAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA&#xa;A4IBAQBUu+pt3sLw518wkPpwqpm2G2af7YLohddRz+SOrL9PWC4TUbK0ilhtpUen&#xa;zSDsmNtIamszsJIuus0iItGye4eOjNvCOPqvWdrJBQlYmCaKlmQb6zFAbEq1Vhc0&#xa;T2UBVLfyJoY3Cu1Z65D+JG4KeDi2W6CNYu8szl4scHFkVkPq2TtwJ9/qIuQWM4dy&#xa;SSuV0dCKpO7XEXWfjObofR0/99Oqm1BJZptHWtnCc7e5cFXmGuDiX4x0GLnFsCR2&#xa;YwKTV5gjv8IoUc3i77YCrtEUjW7pa9Vk5vA2aufPk5XHgKKOVez88G2oBGSB0Fig&#xa;u2qGV7nxrV/079PQR0iem0bFhwb1&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="tls-alpn" output="&#xa;  http/1.1"><elem>http/1.1</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="http-server-header" output="Apache/2.4.66 (Ubuntu) OpenSSL/3.5.5"><elem>Apache/2.4.66 (Ubuntu) OpenSSL/3.5.5</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."></script></port>
+</ports>
+<times srtt="1233" rttvar="2456" to="100000"/>
+</host>
+<runstats><finished time="1793258696" timestr="Thu Oct 29 03:24:56 2026" summary="Nmap done at Thu Oct 29 03:24:56 2026; 1 IP address (1 host up) scanned in 19.55 seconds" elapsed="19.55" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

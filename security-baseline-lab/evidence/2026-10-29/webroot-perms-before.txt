@@ -1,0 +1,5 @@
+drwxr-xr-x root:root /var/www
+drwxr-x--- www-data:www-data /var/www/apache-web-01
+drwxrwxrwx www-data:www-data /var/www/apache-web-01/public_html
+drwxr-xr-x root:root /var/www/apache-web-01/public_html/backup
+-rw-r--r-- root:root /var/www/apache-web-01/public_html/backup/db-dump.sql.bak

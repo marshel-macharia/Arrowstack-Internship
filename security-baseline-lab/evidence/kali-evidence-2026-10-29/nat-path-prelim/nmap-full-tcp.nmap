@@ -1,0 +1,1 @@
+# Nmap 7.99 scan initiated Thu Oct 29 02:15:10 2026 as: /usr/lib/nmap/nmap -sS -sV -sC -p- -T4 -oA /home/kali/baseline-lab/evidence/2026-10-29/nmap-full-tcp 192.168.208.10

@@ -1,0 +1,19 @@
+- Nikto v2.6.0/
++ Target Host: 192.168.208.10
++ Target Port: 443
++ SSL Info:           Subject:  /CN=apache-web-01
+                      CN:       apache-web-01
+                      Ciphers:  TLS_AES_256_GCM_SHA384
+                      Issuer:   /CN=apache-web-01
++ GET /: Suggested security header missing: content-security-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP: 
++ GET /: Suggested security header missing: permissions-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy: 
++ GET /: Suggested security header missing: referrer-policy. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy: 
++ GET /: Suggested security header missing: x-content-type-options. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options: 
++ GET /: Suggested security header missing: strict-transport-security. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security: 
++ GET /: Hostname '192.168.208.10' does not match certificate names (CN: apache-web-01, SAN: none). See: https://cwe.mitre.org/data/definitions/297.html: 
++ HEAD OpenSSL/3.5.5 appears to be outdated (current is at least 3.6.0). OpenSSL 1.1.1w is current for 1.x and is supported via contract, and 3.0.12 for 3.0.x, and 3.1.4 for 3.1.x.
++ OPTIONS OPTIONS: Allowed HTTP Methods: HEAD, GET, POST, OPTIONS .
++ GET /backup/: Directory indexing found.
++ GET /backup/: This might be interesting.
++ GET /: X-Frame-Options header is deprecated and was replaced with the Content-Security-Policy HTTP header with the frame-ancestors directive. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options: 
++ GET /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/: 
