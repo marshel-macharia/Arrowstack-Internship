@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+    ServerName apache-web-01
+    DocumentRoot /var/www/apache-web-01/public_html
+    ErrorLog ${APACHE_LOG_DIR}/apache-web-01-error.log
+    CustomLog ${APACHE_LOG_DIR}/apache-web-01-access.log combined
+</VirtualHost>
+<Directory /var/www/apache-web-01/public_html>
+    Options -Indexes
+</Directory>

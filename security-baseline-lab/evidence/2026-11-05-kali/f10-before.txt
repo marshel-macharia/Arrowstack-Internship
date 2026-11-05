@@ -1,0 +1,20 @@
+== HTTP ==
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 07:48:46 GMT
+Server: Apache
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29
+Content-Type: text/html
+
+== HTTPS ==
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 07:48:46 GMT
+Server: Apache
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29
+Content-Type: text/html
+

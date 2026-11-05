@@ -1,0 +1,15 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-11-03 00:35 -0500
+Nmap scan report for 192.168.208.10
+Host is up (0.00092s latency).
+
+PORT     STATE    SERVICE
+21/tcp   filtered ftp
+22/tcp   open     ssh
+25/tcp   filtered smtp
+80/tcp   open     http
+443/tcp  open     https
+3306/tcp filtered mysql
+8080/tcp filtered http-proxy
+MAC Address: 08:00:27:34:99:6B (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 1.91 seconds
