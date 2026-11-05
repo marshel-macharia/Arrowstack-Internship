@@ -3,7 +3,8 @@
 **Project:** Arrowstack 1-Month Cyber Security Internship — Project 1
 **Target:** apache-web-01 (Ubuntu Server 26.04 LTS, Apache 2.4.66)
 **Assessor platform:** Kali Linux
-**Report status:** Baseline evidence gathering complete. Risk register and remediation pending.
+**Version:** 1.1 (2026-11-05, see revision note at the end)
+**Report status:** Baseline report (state before remediation). Remediation and re-test are complete; see `risk-register/risk-register.md`, `remediation/remediation-plan.md` and `reports/final-security-report.md`.
 
 ---
 
@@ -15,9 +16,10 @@ Establish an intentionally unhardened baseline on an existing Apache web server 
 
 See `scope/scope-statement.md` and `inventory/asset-inventory.md` for full scope and asset details. In summary:
 
-- **In scope:** apache-web-01 (host OS, Apache configuration, web root, firewall state, listening services)
+- **In scope:** apache-web-01 (host OS, Apache configuration, web root, firewall state, listening services, and the SSH service)
 - **Assessment network:** VirtualBox host-only segment 192.168.208.0/24 (apache-web-01 = .10, Kali = .30)
-- **Out of scope:** SSH configuration was deliberately left unmodified for this assessment; no changes were made to Kali's existing NatNetwork adapter (10.0.0.0/24), which supports a separate internship task and was preserved throughout
+- **Out of scope:** no changes were made to Kali's existing NatNetwork adapter (10.0.0.0/24), which supports a separate internship task and was preserved throughout
+- **SSH:** no SSH misconfiguration was planted. The existing SSH configuration was left unmodified when the baseline was created, and it is assessed like every other service on the server (checks S1 and S2). The checklist found password authentication enabled (finding F-04)
 
 ## 3. Methodology
 
@@ -37,7 +39,7 @@ See `scope/scope-statement.md` and `inventory/asset-inventory.md` for full scope
   - `chmod 777` on the web root (`public_html`)
   - UFW disabled
   - Additional weak-password local user (`testuser`)
-  - SSH configuration deliberately left unchanged (out of scope for this round)
+  - The `/backup/` directory and `db-dump.sql.bak` (created 2026-10-28 07:46 UTC, between the two snapshots)
 - Snapshot `apache-web-01-UNHARDENED-baseline` taken to lock in the unhardened state (2026-10-28, 11:02 local).
 - Evidence (`dirlisting-http/https.html`, `headers-http.txt`, `baseline-ground-truth.txt`) copied to the Windows host, SHA-256 verified.
 - 16-control manual checklist run into `checks-before.txt`.
@@ -103,6 +105,8 @@ HTTP/1.1 200 OK
 Content-Type: application/x-trash
 Last-Modified: Wed, 28 Oct 2026 07:46:23 GMT
 ```
+The file is 0 bytes, so no data was exposed; the rating in the risk register reflects what a real backup in that place would expose.
+
 Evidence: `backup-listing-http.html`, `backup-listing-https.html`, `db-dump-headers.txt`
 
 **`ServerSignature On`.** Confirmed via the Apache 404 error page footer:
@@ -121,7 +125,7 @@ Evidence: `404-signature-check.txt`
 | `public_html/backup/` | 755 | root:root |
 | `db-dump.sql.bak` | 644 | root:root |
 
-**Important nuance:** the `777` permission was applied only to `public_html` itself, not recursively. `backup/` and the exposed file both carry normal permissions. This means the world-writable web root and the backup-file exposure are **two distinct findings**, not one — the backup file is reachable via directory indexing + normal read permissions, not via the `777` misconfiguration.
+**Important nuance:** the `777` permission was applied only to `public_html` itself, not recursively. `backup/` and the exposed file both carry normal permissions. This means the world-writable web root and the backup-file exposure are **two distinct findings**, not one — the backup file is reachable via directory indexing + normal read permissions, not via the `777` misconfiguration. The checklist (W4) also lists `public_html/index.html` as world-writable, so the world-writable finding covers the directory and that file; `backup/` and the dump are not part of it. The cause of the `index.html` permission was not determined.
 
 Evidence: `evidence/2026-10-29/webroot-perms-before.txt`
 
@@ -142,18 +146,29 @@ Evidence: `evidence/2026-10-29/source-ip-counts.txt`
 
 ## 6. Findings Summary
 
-| # | Finding | Detected by | Severity (preliminary) |
-|---|---|---|---|
-| 1 | Host-based firewall (UFW) disabled | Lynis, Nmap | High |
-| 2 | `/backup/` directory indexing exposes `db-dump.sql.bak` (unauthenticated) | Nikto, manual `curl` | High |
-| 3 | Web root (`public_html`) world-writable (777, non-recursive) | Manual `stat` | Medium–High |
-| 4 | `ServerTokens Full` — version/software disclosure | Nmap, curl banner | Low–Medium |
-| 5 | `ServerSignature On` — version disclosure on error pages | Manual (404 footer) | Low–Medium |
-| 6 | Missing HTTP security headers (CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, HSTS) | Nikto | Low–Medium |
-| 7 | 176 pending OS package updates (124 security) | Lynis + `apt list --upgradable` | Medium |
-| 8 | Weak-password local account (`testuser`) | Not independently tested — no scanner detected it | Unrated / noted gap |
+Preliminary findings from the evidence-gathering phase, with the final IDs and ratings in `risk-register/risk-register.md`:
 
-Full likelihood/impact ratings, CWE/OWASP mapping, and remediation guidance to be developed in the risk register.
+| # | Finding | Detected by | Severity (preliminary) | Risk register ID |
+|---|---|---|---|---|
+| 1 | Host-based firewall (UFW) disabled | Lynis, Nmap | High | F-05 |
+| 2 | `/backup/` directory indexing exposes `db-dump.sql.bak` (unauthenticated) | Nikto, manual `curl` | High | F-01 |
+| 3 | Web root (`public_html`) world-writable (777, non-recursive; `index.html` also world-writable per W4) | Manual `stat`, checklist W4 | Medium–High | F-02 |
+| 4 | `ServerTokens Full` — version/software disclosure | Nmap, curl banner | Low–Medium | F-09 |
+| 5 | `ServerSignature On` — version disclosure on error pages | Manual (404 footer) | Low–Medium | F-09 |
+| 6 | Missing HTTP security headers (CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, HSTS) | Nikto | Low–Medium | F-10 |
+| 7 | 176 pending OS package updates (124 security) | Lynis + `apt list --upgradable` | Medium | F-06 |
+| 8 | Weak-password local account (`testuser`) | Not independently tested — no scanner detected it | Unrated / noted gap | F-03 |
+
+Findings added to the risk register after this table was first written, from the checklist and Nikto:
+
+| Risk register ID | Finding | Detected by |
+|---|---|---|
+| F-04 | SSH password authentication enabled | Checklist S2 |
+| F-07 | fail2ban not active | Checklist L2 |
+| F-08 | Directory listing enabled (`autoindex` module and `Options +Indexes`) | Checklist W3, Nikto |
+| F-11 | Self-signed certificate with CN mismatch and no SAN | Nikto, Nmap |
+
+The checklist (6 of 16 passing, 37.5%) is the primary baseline measure.
 
 ## 7. Methodology Notes & Limitations
 
@@ -161,9 +176,14 @@ Full likelihood/impact ratings, CWE/OWASP mapping, and remediation guidance to b
 - **OS end-of-life data:** Ubuntu 26.04 was not present in Lynis's EOL database at time of scan; does not affect findings but is noted for completeness.
 - **Timezone discrepancy:** apache-web-01 logs in UTC; Kali operated on UTC−4 (GMT-4) for this session. Timestamps in evidence files should be converted when cross-referencing server logs against Kali-side scan times (e.g., Nikto HTTP scan start 03:55 Kali time = 07:55 UTC on the server).
 - **Network path artifact:** an initial ~40-minute Nmap run and 61 logged requests from 192.168.208.1 are the result of a since-corrected Kali network misconfiguration (traffic routed via VirtualBox NAT instead of the direct host-only link). Preserved as evidence but excluded from the primary findings.
+- **Update counts:** the checklist on 2026-10-28 (`checks-before.txt`, M2) listed 11 upgradable packages, while the 2026-10-29 capture listed 176. The most likely cause is that the package index had not been refreshed at the time of the first capture. This report uses the 2026-10-29 figures.
 
-## 8. Next Steps
+## 8. Subsequent Work
 
-1. Build the risk register (`risk-register/`) — formal likelihood/impact scoring and remediation guidance for each finding above.
-2. Apply remediation on apache-web-01 and re-run the full evidence-gathering process (Lynis, Nmap, Nikto, 16-control checklist) to produce "after" evidence.
-3. Produce a before/after comparison and final project write-up.
+1. Risk register: completed (`risk-register/risk-register.md`, 11 findings, F-01 to F-11).
+2. Remediation and re-test: completed on 2026-11-03 and 2026-11-05 (`remediation/remediation-plan.md`), with the same checklist, Lynis, Nmap and Nikto used for the "after" evidence.
+3. Before/after comparison and final write-up: `reports/final-security-report.md`.
+
+## Revision note
+
+- **v1.1 (2026-11-05):** corrected the scope statement on SSH (it was described as out of scope, but SSH is assessed and produced finding F-04); added the risk register IDs to the findings summary and the findings added after the first version; noted that `index.html` is also world-writable (W4); added the origin and size of `db-dump.sql.bak`; explained the 11 versus 176 update counts; updated the status and next steps. The baseline evidence and measurements are unchanged.
