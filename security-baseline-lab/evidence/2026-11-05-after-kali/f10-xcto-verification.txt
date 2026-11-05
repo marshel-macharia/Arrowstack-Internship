@@ -1,0 +1,48 @@
+== GET / ==
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 09:18:32 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29
+Content-Type: text/html
+== 404 page ==
+HTTP/1.1 404 Not Found
+Date: Thu, 05 Nov 2026 09:18:32 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'
+Content-Type: text/html; charset=iso-8859-1
+
+== OPTIONS ==
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 09:18:32 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'
+Allow: GET,POST,OPTIONS,HEAD
+Content-Length: 0
+Content-Type: text/html
+
+== HTTPS GET / ==
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 09:18:32 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'
+Strict-Transport-Security: max-age=31536000
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29

@@ -1,0 +1,15 @@
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  pollinate
+Use 'sudo apt autoremove' to remove it.
+
+Not upgrading yet due to phasing:
+  base-files        python3-software-properties  vim         vim-runtime  xxd
+  motd-news-config  software-properties-common   vim-common  vim-tiny
+
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 9
