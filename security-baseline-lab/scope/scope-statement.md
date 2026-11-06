@@ -2,7 +2,7 @@
 
 **Project:** Security Baseline Assessment Lab (Arrowstack Cyber Security Internship, Project 1)
 **Author:** Marshel Mburu Macharia
-**Date:** 2026-11-05
+**Date:** 2026-11-06
 **Version:** 1.2 (see change log at the end)
 
 ## 1. Scenario
@@ -64,7 +64,7 @@ The 16 controls are the author's own checklist, modelled on the CIS Ubuntu Linux
 - The weak password on the `testuser` account was not verified by any scanner and was not tested directly (a deliberate decision, recorded in the work log). The report states that scanners did not detect it. The account was removed in remediation
 - The checklist is the author's own and is not an official CIS certification or benchmark result
 - The after-remediation checklist was run with a script reconstructed from the baseline output (`run-checks.sh`), because the original baseline commands were not kept as a script. The output format matches `checks-before.txt`
-- Control M2 was worded "no pending updates" in risk register v1.0. At the re-test no security updates were pending, but 9 non-security updates were held back by Ubuntu's phased rollout (`m2-phasing-check.txt`). M2 is scored as a pass on the security-update criterion. Under the original strict wording the after score would be 14 of 16 (87.5%). Both figures are reported, and the target of at least 14 is met either way
+- Control M2 was worded "no pending updates" in risk register v1.0. At the final recheck on 2026-11-06, after installing the updates that had appeared since 2026-11-05 (including the Ubuntu security update `ca-certificates`), no Ubuntu security updates were pending. 7 non-security packages were still held back by Ubuntu's phased rollout, and one package from a third-party repository (`wazuh-agent`, outside the assessment scope; a Wazuh agent must not be newer than its manager) was left alone (`m2-recheck-2026-11-06-before.txt`, `m2-recheck-2026-11-06-after.txt`, `checks-after-final.txt`). M2 is scored as a pass on the security-update criterion. Under the original strict wording the after score would be 14 of 16 (87.5%). Both figures are reported, and the target of at least 14 is met either way
 - The after-remediation full-port Nmap scan used `--max-retries 1`, because the firewall drops packets to closed ports and the default settings are very slow. The baseline scan did not use that option
 - Nikto reported one false positive after remediation (X-Content-Type-Options "not set", although the header was verified on four request types). The cause was not determined
 
@@ -75,6 +75,6 @@ The 16 controls are the author's own checklist, modelled on the CIS Ubuntu Linux
 - Nikto web server scanner: https://github.com/sullo/nikto
 
 ## Change log
-- **v1.2 (2026-11-05):** recorded the after-remediation results against the targets; removed the Lynis placeholder; stated that SSH on apache-web-01 is in scope; added limitations for the reconstructed checklist script, the M2 wording and score, the Nmap option change and the Nikto false positive; added the remediation step to the rules of engagement
+- **v1.2 (2026-11-06):** recorded the after-remediation results against the targets; removed the Lynis placeholder; stated that SSH on apache-web-01 is in scope; added limitations for the reconstructed checklist script, the M2 wording and score, the Nmap option change and the Nikto false positive; added the remediation step to the rules of engagement
 - **v1.1 (2026-11-03):** named the fictional company, confirmed the Kali address, added the out-of-scope Kali NAT interface, the Splunk forwarder note, the NAT-path disclosure, the Lynis metric, the baseline naming statement and references; set the after-remediation targets as provisional until the risk register exists
 - **v1.0 (2026-10-28):** initial scope statement

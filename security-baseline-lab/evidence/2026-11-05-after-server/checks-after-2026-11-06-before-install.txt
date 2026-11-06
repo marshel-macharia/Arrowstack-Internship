@@ -1,0 +1,67 @@
+=== A1 UID 0 accounts ===
+root
+=== A2 Empty passwords ===
+=== A3 Regular accounts ===
+nobody
+marshel
+splunkfwd
+=== S1/S2 SSH settings ===
+permitrootlogin prohibit-password
+passwordauthentication no
+=== F1 Firewall ===
+Status: active
+=== F2 Listening ports ===
+Netid State  Recv-Q Send-Q    Local Address:Port Peer Address:PortProcess                                                                              
+udp   UNCONN 0      0             127.0.0.1:323       0.0.0.0:*    users:(("chronyd",pid=935,fd=4))                                                    
+udp   UNCONN 0      0            127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=495,fd=18))                                           
+udp   UNCONN 0      0         127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=495,fd=16))                                           
+udp   UNCONN 0      0      10.0.2.15%enp0s3:68        0.0.0.0:*    users:(("systemd-network",pid=725,fd=37))                                           
+udp   UNCONN 0      0                 [::1]:323          [::]:*    users:(("chronyd",pid=935,fd=5))                                                    
+tcp   LISTEN 0      4096         127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=495,fd=19))                                           
+tcp   LISTEN 0      4096            0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=1810,fd=3),("systemd",pid=1,fd=185))                             
+tcp   LISTEN 0      4096      127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=495,fd=17))                                           
+tcp   LISTEN 0      511                   *:443             *:*    users:(("apache2",pid=1104,fd=6),("apache2",pid=1103,fd=6),("apache2",pid=900,fd=6))
+tcp   LISTEN 0      511                   *:80              *:*    users:(("apache2",pid=1104,fd=4),("apache2",pid=1103,fd=4),("apache2",pid=900,fd=4))
+tcp   LISTEN 0      4096               [::]:22           [::]:*    users:(("sshd",pid=1810,fd=4),("systemd",pid=1,fd=186))                             
+=== W1 Banner config ===
+ServerTokens Prod
+ServerSignature Off
+=== W2 /backup/ status code ===
+404
+=== W3 Modules ===
+ autoindex_module (shared)
+=== W4 World-writable in /var/www ===
+=== W5 HTTPS headers ===
+HTTP/1.1 200 OK
+Date: Fri, 06 Nov 2026 04:02:18 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'
+Strict-Transport-Security: max-age=31536000
+Last-Modified: Tue, 25 Aug 2026 17:08:22 GMT
+ETag: "1d-659e226739a16"
+Accept-Ranges: bytes
+Content-Length: 29
+Content-Type: text/html
+
+=== M1 Unattended upgrades ===
+enabled
+=== M2 Upgradable packages ===
+Listing...
+base-files/resolute-updates 14ubuntu6.3 amd64 [upgradable from: 14ubuntu6.2]
+ca-certificates/resolute-updates,resolute-security 20260816ubuntu0.26.04.2 all [upgradable from: 20260816ubuntu0.26.04.1]
+motd-news-config/resolute-updates 14ubuntu6.3 all [upgradable from: 14ubuntu6.2]
+python3-software-properties/resolute-updates 0.120.1 all [upgradable from: 0.120]
+software-properties-common/resolute-updates 0.120.1 all [upgradable from: 0.120]
+vim-common/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-runtime/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-tiny/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+wazuh-agent/stable 4.14.10-1 amd64 [upgradable from: 4.14.9-1]
+xxd/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+=== L1 rsyslog ===
+active
+=== L2 fail2ban ===
+active

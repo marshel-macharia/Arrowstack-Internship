@@ -1,0 +1,39 @@
+Listing...
+base-files/resolute-updates 14ubuntu6.3 amd64 [upgradable from: 14ubuntu6.2]
+ca-certificates/resolute-updates,resolute-security 20260816ubuntu0.26.04.2 all [upgradable from: 20260816ubuntu0.26.04.1]
+motd-news-config/resolute-updates 14ubuntu6.3 all [upgradable from: 14ubuntu6.2]
+python3-software-properties/resolute-updates 0.120.1 all [upgradable from: 0.120]
+software-properties-common/resolute-updates 0.120.1 all [upgradable from: 0.120]
+vim-common/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-runtime/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-tiny/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+wazuh-agent/stable 4.14.10-1 amd64 [upgradable from: 4.14.9-1]
+xxd/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  pollinate
+Use 'sudo apt autoremove' to remove it.
+
+Upgrading:
+  base-files  ca-certificates  motd-news-config  wazuh-agent
+
+Not upgrading yet due to phasing:
+  python3-software-properties  vim         vim-runtime  xxd
+  software-properties-common   vim-common  vim-tiny
+
+Summary:
+  Upgrading: 4, Installing: 0, Removing: 0, Not Upgrading: 7
+1 standard LTS security update
+Inst motd-news-config [14ubuntu6.2] (14ubuntu6.3 Ubuntu:26.04/resolute-updates [all])
+Inst base-files [14ubuntu6.2] (14ubuntu6.3 Ubuntu:26.04/resolute-updates [amd64])
+Conf base-files (14ubuntu6.3 Ubuntu:26.04/resolute-updates [amd64])
+Inst ca-certificates [20260816ubuntu0.26.04.1] (20260816ubuntu0.26.04.2 Ubuntu:26.04/resolute-updates, Ubuntu:26.04/resolute-security [all])
+Inst wazuh-agent [4.14.9-1] (4.14.10-1 4.x/apt stable:stable [amd64])
+Conf motd-news-config (14ubuntu6.3 Ubuntu:26.04/resolute-updates [all])
+Conf ca-certificates (20260816ubuntu0.26.04.2 Ubuntu:26.04/resolute-updates, Ubuntu:26.04/resolute-security [all])
+Conf wazuh-agent (4.14.10-1 4.x/apt stable:stable [amd64])

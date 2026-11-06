@@ -1,0 +1,29 @@
+Listing...
+python3-software-properties/resolute-updates 0.120.1 all [upgradable from: 0.120]
+software-properties-common/resolute-updates 0.120.1 all [upgradable from: 0.120]
+vim-common/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-runtime/resolute-updates 2:9.1.2141-1ubuntu4.10 all [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim-tiny/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+vim/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+wazuh-agent/stable 4.14.10-1 amd64 [upgradable from: 4.14.9-1]
+xxd/resolute-updates 2:9.1.2141-1ubuntu4.10 amd64 [upgradable from: 2:9.1.2141-1ubuntu4.9]
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  pollinate
+Use 'sudo apt autoremove' to remove it.
+
+Upgrading:
+  wazuh-agent
+
+Not upgrading yet due to phasing:
+  python3-software-properties  vim         vim-runtime  xxd
+  software-properties-common   vim-common  vim-tiny
+
+Summary:
+  Upgrading: 1, Installing: 0, Removing: 0, Not Upgrading: 7
+Inst wazuh-agent [4.14.9-1] (4.14.10-1 4.x/apt stable:stable [amd64])
+Conf wazuh-agent (4.14.10-1 4.x/apt stable:stable [amd64])
