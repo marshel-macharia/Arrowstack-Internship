@@ -1,0 +1,6 @@
+HTTP/1.1 201 Created
+Location: /api/Users/28
+Content-Type: application/json; charset=utf-8
+Date: Tue, 10 Nov 2026 09:05:04 GMT
+
+{"status":"success","data":{"username":"","deluxeToken":"","lastLoginIp":"0.0.0.0","profileImage":"/assets/public/images/uploads/defaultAdmin.png","isActive":true,"id":28,"email":"test3@test.com","role":"admin","updatedAt":"2026-11-10T09:05:04.190Z","createdAt":"2026-11-10T09:05:04.190Z","deletedAt":null}}

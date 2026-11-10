@@ -1,0 +1,2 @@
+417540f3d743831009a7ab4f668dd5027017b087fbfc020acbceeb4443acc306  wa-08-directory-listing.txt
+e8ecc62979919d58adf3e27119608bc9cc1cdc4993bd0f1765f6c94e9491c4ce  wa-08-ftp-browser.png

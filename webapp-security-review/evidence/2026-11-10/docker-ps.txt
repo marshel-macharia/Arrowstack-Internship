@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS          PORTS                      NAMES
+1b603b8ae3bc   bkimminich/juice-shop:latest   "/nodejs/bin/node /j…"   28 minutes ago   Up 28 minutes   127.0.0.1:3000->3000/tcp   juice-shop

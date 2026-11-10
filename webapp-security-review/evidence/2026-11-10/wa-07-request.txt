@@ -1,0 +1,7 @@
+POST /api/Users/ HTTP/1.1
+Host: 127.0.0.1:3000
+Content-Type: application/json
+Origin: http://127.0.0.1:3000
+Referer: http://127.0.0.1:3000/
+
+{"email":"test3@test.com","password":"Password3","passwordRepeat":"Password3","securityQuestion":{"id":2,"question":"Mother's maiden name?","createdAt":"2026-11-10T06:48:49.743Z","updatedAt":"2026-11-10T06:48:49.743Z"},"securityAnswer":"ann","role":"admin"}

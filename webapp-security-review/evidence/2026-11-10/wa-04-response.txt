@@ -1,0 +1,4 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"status":"success","data":{"id":4,"coupon":null,"UserId":11,"createdAt":"2026-11-10T06:48:51.763Z","updatedAt":"2026-11-10T06:48:51.763Z","Products":[{"id":4,"name":"Raspberry Juice (1000ml)","description":"Made from blended Raspberry Pi, water and sugar.","price":4.99,"deluxePrice":4.99,"BasketItem":{"ProductId":4,"BasketId":4,"id":6,"quantity":2}}]}}

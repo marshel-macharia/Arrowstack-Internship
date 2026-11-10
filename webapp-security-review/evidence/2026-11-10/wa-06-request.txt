@@ -1,0 +1,7 @@
+POST /rest/user/login HTTP/1.1
+Host: 127.0.0.1:3000
+Content-Type: application/json
+Origin: http://127.0.0.1:3000
+Referer: http://127.0.0.1:3000/
+
+{"email":"test1@test.com","password":"Wrongpassword1"}
